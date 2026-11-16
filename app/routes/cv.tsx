@@ -188,7 +188,7 @@ export default function CvRoute() {
             </section>
 
             {/* Projects — same column and the same entry format as experience */}
-            <section className="cv-projects">
+            <section>
               <h2 className={`${sectionTitle} ${faint}`}>{t.cv.projects}</h2>
               <div className="mt-1.5 flex flex-col gap-2.5">
                 {["my-car", "go-bus", "education-management", "medical-gis"].map(

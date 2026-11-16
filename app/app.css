@@ -410,13 +410,6 @@ html[dir="rtl"] .edge-fade-end {
     width: 34% !important;
   }
 
-  /* Start the project list on a fresh A4 page so both pages are balanced;
-     it keeps the same column width and the same entry markup as experience. */
-  .cv-projects {
-    break-before: page;
-    page-break-before: always;
-  }
-
   a {
     color: inherit !important;
     text-decoration: none !important;
