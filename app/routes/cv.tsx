@@ -172,6 +172,7 @@ export default function CvRoute() {
                     <p className={`${entryMeta} ${faint}`}>
                       {job.company[locale]} · {job.location[locale]}
                     </p>
+                    <p className={`mt-0.5 ${entryBody} ${soft}`}>{job.summary[locale]}</p>
                     <ul className={`mt-1 flex flex-col gap-0.5 ${soft}`}>
                       {job.highlights[locale].slice(0, 3).map((item) => (
                         <li key={item} className={bullet}>
@@ -187,7 +188,7 @@ export default function CvRoute() {
             </section>
 
             {/* Projects — same column and the same entry format as experience */}
-            <section>
+            <section className="cv-projects">
               <h2 className={`${sectionTitle} ${faint}`}>{t.cv.projects}</h2>
               <div className="mt-1.5 flex flex-col gap-2.5">
                 {["my-car", "go-bus", "education-management", "medical-gis"].map(
