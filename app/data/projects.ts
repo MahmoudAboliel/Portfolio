@@ -27,7 +27,7 @@ export const projects: Project[] = [
     links: [
       {
         kind: "repo",
-        href: "https://github.com/MahmoudAboliel/go-bus",
+        href: "https://github.com/MahmoudAboliel/Bytes4Future_Full_Stack_Course/tree/main/Project_Tasks/Go-Bus",
       },
     ],
     title: {
@@ -164,7 +164,12 @@ export const projects: Project[] = [
       "REST APIs",
       "Tailwind CSS",
     ],
-    links: [{ kind: "repo", href: "https://github.com/MahmoudAboliel/CarStoreNextjs" }],
+    links: [
+      {
+        kind: "repo",
+        href: "https://github.com/MahmoudAboliel/CarStoreNextjs",
+      },
+    ],
     title: {
       en: "My Car — Car Marketplace",
       ar: "My Car — منصة سيارات",
@@ -271,7 +276,12 @@ export const projects: Project[] = [
     year: "2025",
     art: "school",
     stack: ["React", "Node.js", "Express", "MongoDB", "Mongoose", "JWT"],
-    links: [{ kind: "repo", href: "https://github.com/MahmoudAboliel/Bytes4Future_Full_Stack_Course/tree/main/Project_Tasks/Educational-Institution-Management-System" }],
+    links: [
+      {
+        kind: "repo",
+        href: "https://github.com/MahmoudAboliel/Bytes4Future_Full_Stack_Course/tree/main/Project_Tasks/Educational-Institution-Management-System",
+      },
+    ],
     title: {
       en: "Educational Institution Management System",
       ar: "نظام إدارة مؤسسة تعليمية",
@@ -364,7 +374,12 @@ export const projects: Project[] = [
       "PostGIS",
       "Leaflet",
     ],
-    links: [{ kind: "repo", href: "https://github.com/MahmoudAboliel/medical-gis-dashboard" }],
+    links: [
+      {
+        kind: "repo",
+        href: "https://github.com/MahmoudAboliel/medical-gis-dashboard",
+      },
+    ],
     title: {
       en: "Medical GIS & Emergency Response Dashboard",
       ar: "لوحة GIS طبية واستجابة للطوارئ",
@@ -454,7 +469,12 @@ export const projects: Project[] = [
     year: "2024",
     art: "cloud",
     stack: ["Next.js", "Prisma", "MongoDB", "Tailwind CSS", "JWT", "SSR"],
-    links: [{ kind: "repo", href: "https://github.com/MahmoudAboliel/Cloud-Hosting-Next-js" }],
+    links: [
+      {
+        kind: "repo",
+        href: "https://github.com/MahmoudAboliel/Cloud-Hosting-Next-js",
+      },
+    ],
     title: {
       en: "Cloud Hosting Platform",
       ar: "منصة استضافة سحابية",
