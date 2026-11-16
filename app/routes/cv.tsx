@@ -5,7 +5,7 @@ import { Icon } from "~/components/icons";
 import { certifications, education, experience, skills } from "~/data/resume";
 import { getProject } from "~/data/projects";
 import { profile } from "~/data/profile";
-import { site } from "~/data/site";
+import { site, getSiteUrl } from "~/data/site";
 import { getLocale, pathFor, ui } from "~/i18n";
 import { seo } from "~/lib/seo";
 
@@ -49,6 +49,8 @@ export default function CvRoute() {
   const t = ui[locale];
   const isAr = locale === "ar";
   const otherLocale = isAr ? "en" : "ar";
+  const portfolioUrl = getSiteUrl();
+  const portfolioLabel = portfolioUrl.replace(/^https?:\/\//, "");
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-10 sm:px-8 sm:py-14 print-reset">
@@ -125,6 +127,12 @@ export default function CvRoute() {
                   <Icon name="map-pin" size={10} className="mt-[0.15em] shrink-0" />{" "}
                   {site.contact.location[locale]}
                 </span>
+                <a
+                  href={portfolioUrl}
+                  className="inline-flex min-w-0 items-start gap-1.5 py-0.5 [overflow-wrap:anywhere] print:py-0"
+                >
+                  <Icon name="globe" size={10} className="mt-[0.15em] shrink-0" /> {portfolioLabel}
+                </a>
                 <span className="inline-flex min-w-0 items-start gap-1.5 [overflow-wrap:anywhere]">
                   <Icon name="github" size={10} className="mt-[0.15em] shrink-0" />{" "}
                   {site.socials.GitHub.replace("https://", "")}
