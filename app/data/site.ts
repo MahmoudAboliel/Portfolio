@@ -30,8 +30,8 @@ export const site = {
    */
   googleVerificationFile: "",
   socials: {
-    GitHub: "https://github.com/mahmoudabulail",
-    LinkedIn: "https://linkedin.com/in/mahmoudabulail",
+    GitHub: "https://github.com/MahmoudAboliel",
+    LinkedIn: "https://www.linkedin.com/in/mahmoud-abulail-4516492ab",
     Email: "mahmoudabulail1998@gmail.com",
     Phone: "+963938293299",
   },
