@@ -118,6 +118,18 @@ export function Experience() {
                     <p className="mt-1.5 text-[11px] leading-relaxed text-muted">
                       {cert.summary[locale]}
                     </p>
+                    {cert.url ? (
+                      <a
+                        href={cert.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-1.5 inline-flex items-center gap-1 text-[10.5px] font-medium text-accent hover:underline"
+                      >
+                        <Icon name="github" size={11} className="shrink-0" />
+                        {t.cv.courseWork}
+                        <Icon name="external" size={9} className="shrink-0 opacity-70" />
+                      </a>
+                    ) : null}
                   </li>
                 ))}
               </ul>

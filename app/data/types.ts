@@ -58,6 +58,8 @@ export type Certification = {
   issuer: Localized;
   year: string;
   summary: Localized;
+  /** Optional public link to course work, projects or syllabus. */
+  url?: string;
 };
 
 export type EducationItem = {

@@ -113,6 +113,8 @@ const en = {
     languages: "Languages",
     contact: "Contact",
     note: "PDF file generated from this site's content.",
+    courseWork: "Course projects & lessons",
+    impact: "Impact",
   },
   footer: {
     tagline: "Full-Stack JavaScript developer — React, Node.js, React Native.",
@@ -246,6 +248,8 @@ const ar: Dict = {
     languages: "اللغات",
     contact: "التواصل",
     note: "ملف PDF مُولَّد من محتوى هذا الموقع.",
+    courseWork: "مشاريع ودروس المعسكر",
+    impact: "الأثر",
   },
   footer: {
     tagline: "مطوّر Full-Stack — React وNode.js وReact Native.",

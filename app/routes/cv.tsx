@@ -34,6 +34,16 @@ const soft = "text-[#4d4d5a]";
 const faint = "text-[#6b6b74]";
 const rule = "border-[#14141a]/12";
 
+/* Compact type scale — shared by experience and project entries so both
+   read as one continuous column. */
+const sectionTitle = "text-[10.8px] font-bold uppercase tracking-[0.18em]";
+const entryTitle = "text-[13.2px] font-bold leading-snug";
+const entryPeriod = "text-[10.2px] leading-snug";
+const entryMeta = "text-[10.9px] leading-snug";
+const entryBody = "text-[11.3px] leading-[1.45]";
+const entryStack = "mt-0.5 text-[9.2px] uppercase tracking-[0.05em]";
+const bullet = "flex gap-1.5 text-[11.2px] leading-[1.42]";
+
 export default function CvRoute() {
   const { locale } = useLoaderData<typeof loader>();
   const t = ui[locale];
@@ -84,43 +94,43 @@ export default function CvRoute() {
       <article
         dir={isAr ? "rtl" : "ltr"}
         lang={locale}
-        className="cv-sheet print-reset mx-auto max-w-[840px] rounded-2xl bg-[#fdfdfb] px-6 py-8 sm:px-10 sm:py-11"
+        className="cv-sheet print-reset mx-auto max-w-[840px] rounded-2xl bg-[#fdfdfb] px-6 py-7 sm:px-9 sm:py-9"
       >
         {/* Header */}
-        <header className={`border-b ${rule} pb-3.5`}>
+        <header className={`border-b ${rule} pb-2.5`}>
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div className="min-w-0">
-              <h1 className={`font-display text-[34.8px] font-extrabold leading-tight tracking-tight sm:text-[42.9px] ${ink}`}>
+              <h1 className={`font-display text-[29px] font-extrabold leading-tight tracking-tight sm:text-[34px] ${ink}`}>
                 {profile.name[locale]}
               </h1>
-              <p className={`mt-1.5 text-[17.4px] font-medium sm:text-[18.8px] ${soft}`}>
+              <p className={`mt-0.5 text-[14.2px] font-medium sm:text-[15.2px] ${soft}`}>
                 {profile.role[locale]}
               </p>
             </div>
-            <div className="flex min-w-0 items-start gap-4">
-              <div className={`flex min-w-0 flex-col gap-1.5 text-[14.1px] print:gap-1 sm:text-[14.7px] ${soft}`}>
+            <div className="flex min-w-0 items-start gap-3.5">
+              <div className={`flex min-w-0 flex-col gap-0.5 text-[11.2px] print:gap-0.5 sm:text-[11.6px] ${soft}`}>
                 <a
                   href={`mailto:${site.contact.email}`}
-                  className="inline-flex min-w-0 items-start gap-1.5 py-1 [overflow-wrap:anywhere] print:py-0"
+                  className="inline-flex min-w-0 items-start gap-1.5 py-0.5 [overflow-wrap:anywhere] print:py-0"
                 >
-                  <Icon name="mail" size={11} className="mt-[0.15em] shrink-0" /> {site.contact.email}
+                  <Icon name="mail" size={10} className="mt-[0.15em] shrink-0" /> {site.contact.email}
                 </a>
                 <a
                   href={`tel:${site.socials.Phone}`}
-                  className="inline-flex min-w-0 items-start gap-1.5 py-1 print:py-0"
+                  className="inline-flex min-w-0 items-start gap-1.5 py-0.5 print:py-0"
                 >
-                  <Icon name="phone" size={11} className="mt-[0.15em] shrink-0" /> {site.contact.phone}
+                  <Icon name="phone" size={10} className="mt-[0.15em] shrink-0" /> {site.contact.phone}
                 </a>
                 <span className="inline-flex min-w-0 items-start gap-1.5">
-                  <Icon name="map-pin" size={11} className="mt-[0.15em] shrink-0" />{" "}
+                  <Icon name="map-pin" size={10} className="mt-[0.15em] shrink-0" />{" "}
                   {site.contact.location[locale]}
                 </span>
                 <span className="inline-flex min-w-0 items-start gap-1.5 [overflow-wrap:anywhere]">
-                  <Icon name="github" size={11} className="mt-[0.15em] shrink-0" />{" "}
+                  <Icon name="github" size={10} className="mt-[0.15em] shrink-0" />{" "}
                   {site.socials.GitHub.replace("https://", "")}
                 </span>
                 <span className="inline-flex min-w-0 items-start gap-1.5 [overflow-wrap:anywhere]">
-                  <Icon name="linkedin" size={11} className="mt-[0.15em] shrink-0" />{" "}
+                  <Icon name="linkedin" size={10} className="mt-[0.15em] shrink-0" />{" "}
                   {site.socials.LinkedIn.replace("https://", "")}
                 </span>
               </div>
@@ -129,72 +139,105 @@ export default function CvRoute() {
               <img
                 src={profile.photo.avatarJpeg}
                 srcSet={`${profile.photo.avatarJpegSmall} 240w, ${profile.photo.avatarJpeg} 400w`}
-                sizes="92px"
+                sizes="78px"
                 width={400}
                 height={400}
                 alt={profile.photo.alt[locale]}
-                className="size-[92px] shrink-0 rounded-full object-cover ring-1 ring-[#14141a]/15"
+                className="size-[78px] shrink-0 rounded-full object-cover ring-1 ring-[#14141a]/15"
               />
             </div>
           </div>
         </header>
 
         {/* Summary */}
-        <section className="mt-4">
-          <h2 className={`text-[13.4px] font-bold uppercase tracking-[0.2em] ${faint}`}>
-            {t.cv.summary}
-          </h2>
-          <p className={`mt-1.5 text-[15.4px] leading-[1.7] ${soft}`}>
+        <section className="mt-2.5">
+          <h2 className={`${sectionTitle} ${faint}`}>{t.cv.summary}</h2>
+          <p className={`mt-1 text-[11.6px] leading-[1.5] ${soft}`}>
             {profile.summary[locale]}
           </p>
         </section>
 
-        <div className="mt-5 grid gap-6 sm:grid-cols-[1.55fr_1fr]">
-          <div className="flex flex-col gap-5">
+        <div className="cv-body mt-3.5 grid gap-5 sm:grid-cols-[1.55fr_1fr]">
+          <div className="cv-main flex flex-col gap-3.5">
             {/* Experience */}
             <section>
-              <h2 className={`text-[13.4px] font-bold uppercase tracking-[0.2em] ${faint}`}>
-                {t.cv.experience}
-              </h2>
-              <div className="mt-2 flex flex-col gap-3">
+              <h2 className={`${sectionTitle} ${faint}`}>{t.cv.experience}</h2>
+              <div className="mt-1.5 flex flex-col gap-2.5">
                 {experience.map((job) => (
                   <div key={job.company.en} className="print-break-avoid">
-                    <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
-                      <h3 className={`min-w-0 text-[16.8px] font-bold leading-snug ${ink}`}>
-                        {job.role[locale]}
-                      </h3>
-                      <span className={`shrink-0 text-[12.7px] ${faint}`}>{job.period[locale]}</span>
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0">
+                      <h3 className={`min-w-0 ${entryTitle} ${ink}`}>{job.role[locale]}</h3>
+                      <span className={`shrink-0 ${entryPeriod} ${faint}`}>{job.period[locale]}</span>
                     </div>
-                    <p className={`text-[14.1px] ${faint}`}>
+                    <p className={`${entryMeta} ${faint}`}>
                       {job.company[locale]} · {job.location[locale]}
                     </p>
-                    <ul className={`mt-1.5 flex flex-col gap-1 ${soft}`}>
-                      {job.highlights[locale].map((item) => (
-                        <li key={item} className="flex gap-1.5 text-[13.7px] leading-[1.55]">
-                          <span className="mt-[0.45em] size-1 shrink-0 rounded-full bg-[#14141a]/35" />
+                    <ul className={`mt-1 flex flex-col gap-0.5 ${soft}`}>
+                      {job.highlights[locale].slice(0, 3).map((item) => (
+                        <li key={item} className={bullet}>
+                          <span className="mt-[0.42em] size-[3px] shrink-0 rounded-full bg-[#14141a]/40" />
                           <span className="min-w-0">{item}</span>
                         </li>
                       ))}
                     </ul>
+                    <p className={`${entryStack} ${faint}`}>{job.stack.join(" · ")}</p>
                   </div>
                 ))}
               </div>
             </section>
 
-            {/* Projects moved below, full width — the details need room. */}
+            {/* Projects — same column and the same entry format as experience */}
+            <section>
+              <h2 className={`${sectionTitle} ${faint}`}>{t.cv.projects}</h2>
+              <div className="mt-1.5 flex flex-col gap-2.5">
+                {["my-car", "go-bus", "education-management", "medical-gis"].map(
+                  (slug) => {
+                    const project = getProject(slug);
+                    if (!project) return null;
+                    return (
+                      <div key={slug} className="print-break-avoid">
+                        <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0">
+                          <h3 className={`min-w-0 ${entryTitle} ${ink}`}>
+                            {project.title[locale]}
+                          </h3>
+                          <span className={`shrink-0 ${entryPeriod} ${faint}`}>
+                            {project.timeline[locale]}
+                          </span>
+                        </div>
+                        <p className={`${entryMeta} ${faint}`}>{project.role[locale]}</p>
+                        <p className={`mt-0.5 ${entryBody} ${soft}`}>
+                          {project.tagline[locale]}
+                        </p>
+                        <ul className={`mt-1 flex flex-col gap-0.5 ${soft}`}>
+                          {project.features[locale].slice(0, 3).map((item) => (
+                            <li key={item} className={bullet}>
+                              <span className="mt-[0.42em] size-[3px] shrink-0 rounded-full bg-[#14141a]/40" />
+                              <span className="min-w-0">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <p className={`mt-0.5 text-[10.8px] leading-[1.4] ${soft}`}>
+                          <span className={`font-semibold ${ink}`}>{t.cv.impact}: </span>
+                          {project.outcomes[locale][0]}
+                        </p>
+                        <p className={`${entryStack} ${faint}`}>{project.stack.join(" · ")}</p>
+                      </div>
+                    );
+                  },
+                )}
+              </div>
+            </section>
           </div>
 
-          <aside className="flex flex-col gap-5">
+          <aside className="cv-side flex flex-col gap-3.5">
             {/* Skills */}
             <section>
-              <h2 className={`text-[13.4px] font-bold uppercase tracking-[0.2em] ${faint}`}>
-                {t.cv.skills}
-              </h2>
-              <div className="mt-1.5 flex flex-col gap-1.5">
+              <h2 className={`${sectionTitle} ${faint}`}>{t.cv.skills}</h2>
+              <div className="mt-1 flex flex-col gap-1">
                 {skills.map((group) => (
                   <div key={group.key}>
-                    <p className={`text-[13.4px] font-semibold ${ink}`}>{group.title[locale]}</p>
-                    <p className={`text-[13.1px] leading-[1.55] ${soft}`}>
+                    <p className={`text-[10.8px] font-semibold ${ink}`}>{group.title[locale]}</p>
+                    <p className={`text-[10.2px] leading-[1.4] ${soft}`}>
                       {group.items.join(" · ")}
                     </p>
                   </div>
@@ -204,15 +247,13 @@ export default function CvRoute() {
 
             {/* Education */}
             <section>
-              <h2 className={`text-[13.4px] font-bold uppercase tracking-[0.2em] ${faint}`}>
-                {t.cv.education}
-              </h2>
+              <h2 className={`${sectionTitle} ${faint}`}>{t.cv.education}</h2>
               {education.map((item) => (
-                <div key={item.degree.en} className="print-break-avoid mt-1.5">
-                  <p className={`text-[14.5px] font-semibold leading-snug ${ink}`}>
+                <div key={item.degree.en} className="print-break-avoid mt-1">
+                  <p className={`text-[11.6px] font-semibold leading-snug ${ink}`}>
                     {item.degree[locale]}
                   </p>
-                  <p className={`text-[13.4px] ${faint}`}>
+                  <p className={`text-[10.4px] ${faint}`}>
                     {item.school[locale]} · {item.period[locale]}
                   </p>
                 </div>
@@ -221,16 +262,23 @@ export default function CvRoute() {
 
             {/* Certifications */}
             <section>
-              <h2 className={`text-[13.4px] font-bold uppercase tracking-[0.2em] ${faint}`}>
-                {t.cv.certifications}
-              </h2>
-              <div className="mt-1.5 flex flex-col gap-2">
+              <h2 className={`${sectionTitle} ${faint}`}>{t.cv.certifications}</h2>
+              <div className="mt-1 flex flex-col gap-1.5">
                 {certifications.map((cert) => (
                   <div key={cert.title.en} className="print-break-avoid">
-                    <p className={`text-[14.1px] font-semibold leading-snug ${ink}`}>
+                    <p className={`text-[11.2px] font-semibold leading-snug ${ink}`}>
                       {cert.title[locale]} · {cert.year}
                     </p>
-                    <p className={`text-[13.1px] leading-[1.5] ${soft}`}>{cert.summary[locale]}</p>
+                    <p className={`text-[10.2px] leading-[1.4] ${soft}`}>{cert.summary[locale]}</p>
+                    {cert.url ? (
+                      <a
+                        href={cert.url}
+                        className={`mt-0.5 inline-flex items-center gap-1 text-[9.6px] font-medium ${faint}`}
+                      >
+                        <Icon name="github" size={9} className="shrink-0" />
+                        {t.cv.courseWork}
+                      </a>
+                    ) : null}
                   </div>
                 ))}
               </div>
@@ -238,10 +286,8 @@ export default function CvRoute() {
 
             {/* Languages */}
             <section>
-              <h2 className={`text-[13.4px] font-bold uppercase tracking-[0.2em] ${faint}`}>
-                {t.cv.languages}
-              </h2>
-              <ul className={`mt-1.5 flex flex-col gap-1 text-[14.1px] ${soft}`}>
+              <h2 className={`${sectionTitle} ${faint}`}>{t.cv.languages}</h2>
+              <ul className={`mt-1 flex flex-col gap-0.5 text-[11px] ${soft}`}>
                 {profile.languages.map((language) => (
                   <li key={language.name.en} className="flex justify-between gap-2">
                     <span>{language.name[locale]}</span>
@@ -253,51 +299,7 @@ export default function CvRoute() {
           </aside>
         </div>
 
-        {/* Projects — full width, each with summary, key features and stack */}
-        <section className="cv-projects mt-6">
-          <h2 className={`text-[13.4px] font-bold uppercase tracking-[0.2em] ${faint}`}>
-            {t.cv.projects}
-          </h2>
-          <div className="mt-2 flex flex-col gap-4">
-            {["my-car", "go-bus", "education-management", "medical-gis"].map(
-              (slug) => {
-                const project = getProject(slug);
-                if (!project) return null;
-                return (
-                  <div key={slug} className="print-break-avoid">
-                    <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
-                      <h3 className={`min-w-0 text-[16.1px] font-bold leading-snug ${ink}`}>
-                        {project.title[locale]}
-                      </h3>
-                      <span className={`shrink-0 text-[12.7px] ${faint}`}>
-                        {project.timeline[locale]}
-                      </span>
-                    </div>
-                    <p className={`mt-0.5 text-[13.4px] ${faint}`}>
-                      {project.role[locale]}
-                    </p>
-                    <p className={`mt-1 text-[13.7px] leading-[1.6] ${soft}`}>
-                      {project.summary[locale]}
-                    </p>
-                    <ul className={`mt-1.5 flex flex-col gap-1 ${soft}`}>
-                      {project.features[locale].slice(0, 4).map((item) => (
-                        <li key={item} className="flex gap-1.5 text-[13.2px] leading-[1.5]">
-                          <span className="mt-[0.45em] size-1 shrink-0 rounded-full bg-[#14141a]/35" />
-                          <span className="min-w-0">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <p className={`mt-1.5 text-[12.1px] uppercase tracking-[0.06em] ${faint}`}>
-                      {project.stack.join(" · ")}
-                    </p>
-                  </div>
-                );
-              },
-            )}
-          </div>
-        </section>
-
-        <footer className={`mt-4 border-t ${rule} pt-2.5 text-[12.1px] ${faint}`}>
+        <footer className={`mt-2.5 border-t ${rule} pt-1.5 text-[9.6px] ${faint}`}>
           {profile.nameLatin} · {site.contact.email} · {site.contact.phone} ·{" "}
           {isAr ? "ملف PDF مُولَّد من محتوى الموقع" : "PDF generated from this site's content"}
         </footer>
