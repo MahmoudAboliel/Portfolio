@@ -384,11 +384,19 @@ html[dir="rtl"] .edge-fade-end {
     page-break-inside: avoid;
   }
 
-  /* The CV is laid out like the on-screen sheet (two columns) and scaled a
-     little so it fits the printed page. It is scaled by `zoom` only — never
-     widened — so nothing can spill past the paper edge. */
+  /* The CV is laid out like the on-screen sheet (two columns) and scaled by
+     `zoom` — never widened — so nothing can spill past the paper edge.
+     The content now spans two A4 pages, so the sheet is scaled for
+     readability rather than to squeeze everything onto one page. */
   .cv-sheet {
-    zoom: 0.72;
+    zoom: 0.8;
+  }
+
+  /* Start the detailed project section on its own page, so the two-column
+     block above it is never split mid-section. */
+  .cv-projects {
+    break-before: page;
+    page-break-before: always;
   }
 
   a {

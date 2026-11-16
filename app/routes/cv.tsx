@@ -181,36 +181,7 @@ export default function CvRoute() {
               </div>
             </section>
 
-            {/* Projects */}
-            <section>
-              <h2 className={`text-[13.4px] font-bold uppercase tracking-[0.2em] ${faint}`}>
-                {t.cv.projects}
-              </h2>
-              <div className="mt-2 flex flex-col gap-2">
-                {["my-car", "go-bus", "education-management", "medical-gis"].map(
-                  (slug) => {
-                    const project = getProject(slug);
-                    if (!project) return null;
-                    return (
-                      <div key={slug} className="print-break-avoid">
-                        <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
-                          <h3 className={`min-w-0 text-[15.4px] font-bold ${ink}`}>
-                            {project.title[locale]}
-                          </h3>
-                          <span className={`shrink-0 text-[12.7px] ${faint}`}>{project.year}</span>
-                        </div>
-                        <p className={`mt-0.5 text-[13.7px] leading-[1.55] ${soft}`}>
-                          {project.tagline[locale]}
-                        </p>
-                        <p className={`mt-1 text-[12.1px] uppercase tracking-[0.06em] ${faint}`}>
-                          {project.stack.join(" · ")}
-                        </p>
-                      </div>
-                    );
-                  },
-                )}
-              </div>
-            </section>
+            {/* Projects moved below, full width — the details need room. */}
           </div>
 
           <aside className="flex flex-col gap-5">
@@ -237,7 +208,7 @@ export default function CvRoute() {
                 {t.cv.education}
               </h2>
               {education.map((item) => (
-                <div key={item.degree.en} className="mt-1.5">
+                <div key={item.degree.en} className="print-break-avoid mt-1.5">
                   <p className={`text-[14.5px] font-semibold leading-snug ${ink}`}>
                     {item.degree[locale]}
                   </p>
@@ -255,7 +226,7 @@ export default function CvRoute() {
               </h2>
               <div className="mt-1.5 flex flex-col gap-2">
                 {certifications.map((cert) => (
-                  <div key={cert.title.en}>
+                  <div key={cert.title.en} className="print-break-avoid">
                     <p className={`text-[14.1px] font-semibold leading-snug ${ink}`}>
                       {cert.title[locale]} · {cert.year}
                     </p>
@@ -282,7 +253,51 @@ export default function CvRoute() {
           </aside>
         </div>
 
-        <footer className={`mt-3 border-t ${rule} pt-2.5 text-[12.1px] ${faint}`}>
+        {/* Projects — full width, each with summary, key features and stack */}
+        <section className="cv-projects mt-6">
+          <h2 className={`text-[13.4px] font-bold uppercase tracking-[0.2em] ${faint}`}>
+            {t.cv.projects}
+          </h2>
+          <div className="mt-2 flex flex-col gap-4">
+            {["my-car", "go-bus", "education-management", "medical-gis"].map(
+              (slug) => {
+                const project = getProject(slug);
+                if (!project) return null;
+                return (
+                  <div key={slug} className="print-break-avoid">
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
+                      <h3 className={`min-w-0 text-[16.1px] font-bold leading-snug ${ink}`}>
+                        {project.title[locale]}
+                      </h3>
+                      <span className={`shrink-0 text-[12.7px] ${faint}`}>
+                        {project.timeline[locale]}
+                      </span>
+                    </div>
+                    <p className={`mt-0.5 text-[13.4px] ${faint}`}>
+                      {project.role[locale]}
+                    </p>
+                    <p className={`mt-1 text-[13.7px] leading-[1.6] ${soft}`}>
+                      {project.summary[locale]}
+                    </p>
+                    <ul className={`mt-1.5 flex flex-col gap-1 ${soft}`}>
+                      {project.features[locale].slice(0, 4).map((item) => (
+                        <li key={item} className="flex gap-1.5 text-[13.2px] leading-[1.5]">
+                          <span className="mt-[0.45em] size-1 shrink-0 rounded-full bg-[#14141a]/35" />
+                          <span className="min-w-0">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className={`mt-1.5 text-[12.1px] uppercase tracking-[0.06em] ${faint}`}>
+                      {project.stack.join(" · ")}
+                    </p>
+                  </div>
+                );
+              },
+            )}
+          </div>
+        </section>
+
+        <footer className={`mt-4 border-t ${rule} pt-2.5 text-[12.1px] ${faint}`}>
           {profile.nameLatin} · {site.contact.email} · {site.contact.phone} ·{" "}
           {isAr ? "ملف PDF مُولَّد من محتوى الموقع" : "PDF generated from this site's content"}
         </footer>

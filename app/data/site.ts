@@ -20,7 +20,7 @@ export const site = {
   locales: ["en", "ar"] as const,
   defaultLocale: "en" as const,
   /** Shown in the footer + CV. Update when you change the content. */
-  updatedAt: "2026-11-13",
+  updatedAt: "2026-11-16",
   ogImage: "/og.png",
   /** Google Search Console → "HTML tag" verification value (content="..." only). */
   googleVerification: "",
