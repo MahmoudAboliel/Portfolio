@@ -6,9 +6,9 @@
  */
 
 /** Production URL. Used for canonical links, sitemap and Open Graph tags. */
-export const SITE_URL = "https://mahmoudabulail.vercel.app";
+export const SITE_URL = "https://portfolio-s7w0.onrender.com";
 
-/** Optional: set SITE_URL in Vercel → Project → Environment Variables to override. */
+/** Optional: set SITE_URL in your host's environment variables to override. */
 export const getSiteUrl = () => {
   const envUrl =
     typeof process !== "undefined" ? process.env?.SITE_URL : undefined;

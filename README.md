@@ -117,7 +117,7 @@ npm run assets     # يولّد كل الملفات أدناه
    ```ts
    export const SITE_URL = "https://your-domain.com";
    ```
-   (أو اتركه واضبط `SITE_URL` في متغيرات بيئة Vercel — له الأولوية.)
+   (أو اتركه واضبط `SITE_URL` في متغيرات بيئة منصة الاستضافة — له الأولوية.)
 2. للتحقق من الملكية في Search Console:
    - **HTML tag**: ضع قيمة `content` فقط في `site.googleVerification`.
    - أو **ملف HTML**: حمّل الملف إلى `public/` وضع اسمه في `site.googleVerificationFile`.
@@ -127,15 +127,22 @@ npm run assets     # يولّد كل الملفات أدناه
 
 ---
 
-## النشر على Vercel
+## النشر على Render
 
 1. ارفع المشروع إلى GitHub.
-2. في Vercel: **Add New → Project** واختر المستودع.
-3. Framework Preset: **React Router** (يُكتشف تلقائياً). لا تحتاج Build Command مخصصاً.
+2. في Render: **New → Web Service** واختر المستودع.
+3. الإعدادات:
+   - **Build Command**: `npm ci && npm run build`
+   - **Start Command**: `npm run start`
+   - **Environment**: `NODE_VERSION` = `22`
 4. أضف متغير البيئة `SITE_URL` = نطاقك النهائي (اختياري لكن مستحسن).
-5. Deploy. بعد أول نشر: أضف النطاق المخصص من **Settings → Domains**، ثم أعد التحقق في Search Console وأرسل الـ sitemap.
+5. Deploy. بعد أول نشر: أضف النطاق المخصص من **Settings → Custom Domains**، ثم أعد التحقق في Search Console وأرسل الـ sitemap.
 
-> إعداد Vercel يعمل فقط أثناء البناء على Vercel (`process.env.VERCEL`) كما في `react-router.config.ts`، فلا يتأثر التشغيل المحلي.
+> الخطة المجانية في Render توقف الخدمة بعد 15 دقيقة خمول وتعيد تشغيلها عند أول طلب (قد يستغرق أول تحميل ~30 ثانية). للاستخدام الجدي مع SEO، فعّل خطة مدفوعة أو استخدم نطاقاً مخصصاً.
+
+### بديل: Vercel
+
+المستودع يحتوي `vercel.json` بإعداد **React Router** جاهزاً (Build: `npm run build`، Output: `build`). أضف المستودع في Vercel واختر Framework Preset: **React Router** ثم Deploy — دون أي تعديل على الكود.
 
 ---
 
